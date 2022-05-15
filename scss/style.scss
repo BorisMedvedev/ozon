@@ -14,6 +14,8 @@ body {
 	font-family: 'GTEestiProText', Arial, sans-serif;
 }
 
+
+
 button {
 	outline: transparent;
 
@@ -529,4 +531,8 @@ nav {
 		margin-left: auto;
 	}
 
+}
+
+.no-scroll {
+	overflow: hidden;
 }
