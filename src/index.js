@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   //чекбокс===========================
   const checkBox = document.querySelectorAll(".filter-check_checkbox");
 
-  checkBox.forEach((e) => {
-    e.addEventListener("change", () => {
+  checkBox.forEach((el) => {
+    el.addEventListener("change", function () {
       if (this.checked) {
         this.nextElementSibling.classList.add("checked");
       } else {
