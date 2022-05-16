@@ -69,7 +69,7 @@ function showData() {
     cartEmpty.remove();
   }
   if (cardsCart.length === 0) {
-    cartWrapper.append(cartEmpty);
+    cartWrapper.appendChild(cartEmpty);
   }
 
 
