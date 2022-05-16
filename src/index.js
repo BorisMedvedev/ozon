@@ -83,35 +83,11 @@ function filterSearch() {
     max = document.getElementById("max"),
     search = document.querySelector(".search-wrapper_input"),
     searchBtn = document.querySelector(".search-btn");
-  checkBox.addEventListener("click", () => {
-    cards.forEach((e) => {
-      if (checkBox.checked) {
-        if (!e.querySelector(".card-sale")) {
-          e.parentNode.style.display = "none";
-        }
-      } else {
-        e.parentNode.style.display = "";
-      }
-    });
-  });
+  checkBox.addEventListener("click", generalFilter);
   // end фильтр акции=========================================
   // фильтр по цене=========================================
-  function filterPrice() {
-    cards.forEach((e) => {
-      const cardPrice = e.querySelector(".card-price"),
-        price = parseFloat(cardPrice.textContent);
-      if (
-        (min.value && price < min.value) ||
-        (max.value && price > max.value)
-      ) {
-        e.parentNode.style.display = "none";
-      } else {
-        e.parentNode.style.display = "";
-      }
-    });
-  }
-  min.addEventListener("change", filterPrice);
-  max.addEventListener("change", filterPrice);
+  min.addEventListener("change", generalFilter);
+  max.addEventListener("change", generalFilter);
   // end фильтр по цене=========================================
   // поиск=========================================
   searchBtn.addEventListener("click", () => {
@@ -126,7 +102,25 @@ function filterSearch() {
     });
   });
   // end поиск=========================================
+  function generalFilter() {
+    cards.forEach((e) => {
+      const cardPrice = e.querySelector(".card-price"),
+        price = parseFloat(cardPrice.textContent),
+        discont = e.querySelector(".card-sale");
+      if (
+        (min.value && price < min.value) ||
+        (max.value && price > max.value)
+      ) {
+        e.parentNode.style.display = "none";
+      } else if (checkBox.checked && !discont) {
+        e.parentNode.style.display = "none";
+      } else {
+        e.parentNode.style.display = "";
+      }
+    });
+  }
 }
+
 toggleCheckbox();
 toggleCart();
 addCart();
