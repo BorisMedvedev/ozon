@@ -47,7 +47,7 @@ cards.forEach((card) => {
       cardClone.remove();
 
 
-    })
+    });
   });
 });
 
