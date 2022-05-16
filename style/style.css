@@ -449,7 +449,9 @@ nav .search-btn button::before {
 
 .card {
   border: 1px solid #ededed;
-  border-radius: 0;
+  border-radius: 17px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .card-img-wrapper {
@@ -483,11 +485,11 @@ nav .search-btn button::before {
   top: 10px;
   left: 8px;
   color: #ffffff;
-  background-color: #9f3584;
+  background-color: #4dacfa;
   font-weight: bold;
   padding: 4px 8px;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 17px;
   margin-right: 8px;
   z-index: 111;
 }
@@ -561,7 +563,7 @@ nav .search-btn button::before {
   padding: 20px;
 }
 
-.cart-wrapper #cart-empty {
+.cart-wrapper .cart-empty {
   font-size: 24px;
   color: #4d5f71;
 }
@@ -593,11 +595,11 @@ nav .search-btn button::before {
 }
 
 .cart-total {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .cart-total span {
-  color: #077c24;
+  color: red;
 }
 
 .cart-confirm {
