@@ -38,8 +38,16 @@ cards.forEach((card) => {
   btn.addEventListener("click", () => {
     const cardClone = card.cloneNode(true);
     cartWrapper.appendChild(cardClone);
-    cartEmpty.remove();
+
     showData();
+
+    const removeBtn = cardClone.querySelector('.btn');
+    removeBtn.textContent = 'Удалить из корзины';
+    removeBtn.addEventListener('click', () => {
+      cardClone.remove();
+
+
+    })
   });
 });
 
@@ -47,13 +55,23 @@ function showData() {
   const cardsCart = cartWrapper.querySelectorAll(".card"),
     cardsPrice = cartWrapper.querySelectorAll('.card-price'),
     cartTotal = document.querySelector('.cart-total span');
-  let sum = 0;
+
   countGoods.textContent = cardsCart.length;
+
+  let sum = 0;
   cardsPrice.forEach((cardPrice) => {
     let price = parseFloat(cardPrice.textContent);
     sum += price;
   });
   cartTotal.textContent = sum;
+
+  if (cardsCart.length !== 0) {
+    cartEmpty.remove();
+  }
+  if (cardsCart.length === 0) {
+    cartWrapper.append(cartEmpty);
+  }
+
 
 }
 
